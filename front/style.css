@@ -1,0 +1,57 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+}
+
+@media (max-width: 400px) {
+  body {
+    font-size: 4vw;
+  }
+}
+
+h1 {
+  font-weight: normal;
+  text-align: center;
+  margin: 0.4em;
+}
+
+main {
+  flex: 1 0;
+  overflow-y: scroll;
+  border: 1px inset;
+}
+
+p.status {
+  text-align: center;
+  font-style: italic;
+}
+p * {
+  margin: 0 1em;
+}
+p time {
+  color: gray;
+}
+
+form {
+  display: flex;
+  flex: 0 0 auto;
+  margin: 0.6em;
+}
+button {
+  border-radius: 0.1em;
+  background: silver;
+  color: white;
+  border: 0;
+}
+form:valid button {
+  background: #16c416;
+}
+input {
+  flex: 1 0 auto;
+}
+input, button {
+  font-size: inherit;
+}
