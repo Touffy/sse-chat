@@ -70,7 +70,7 @@ const server = http.createServer((req, res) => {
       })
       .catch(err => {
         res.writeHead(400)
-        red.end(err.message)
+        res.end(err.message)
       })
       return
       default: res.writeHead(405)
