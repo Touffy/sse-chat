@@ -1,6 +1,6 @@
 import http from 'http'
-import readStream from './readStream'
-import Queue from './Queue'
+import readStream from './readStream.mjs'
+import Queue from './Queue.mjs'
 
 class Message {
   constructor(author, text) {
@@ -42,7 +42,7 @@ const server = http.createServer((req, res) => {
       clients.add(res)
       const lastEventId = req.headers['Last-Event-ID']
       for (const message of messages.valuesAfterID(lastEventId)) res.write(message.buffer)
-      req.connection.addListener('close', () => {
+      req.socket.addListener('close', () => {
         clients.delete(res)
         const disconnectedEvent = Buffer.from(`event:quit\ndata:${remoteAddr(req)}\n\n`)
         for (const client of clients) client.write(disconnectedEvent)  
